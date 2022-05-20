@@ -1,8 +1,11 @@
 import Routes from './routes'
+import { CustomThemeProvider } from './providers';
 
 function App() {
   return (
-    <Routes />
+    <CustomThemeProvider>
+      <Routes />
+    </CustomThemeProvider>
   )
 }
 
