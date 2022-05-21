@@ -23,7 +23,7 @@ const Cadaster = () => {
             handleChange={handleChange}
           />
 
-          <ImageSection image={image} />
+          <ImageSection image={image} imageAlt='museum' />
         </Box>
       </Fade>
     </Box>

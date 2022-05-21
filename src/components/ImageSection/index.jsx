@@ -4,12 +4,12 @@ import { Box, Typography, Slide } from '@mui/material'
 
 import { useStyles } from './styles'
 
-export const ImageSection = ({ image }) => {
+export const ImageSection = ({ image, imageAlt }) => {
   const { styles } = useStyles()
 
   return (
     <Box sx={styles.container}>
-      <img src={image} alt="greece's temple" />
+      <img src={image} alt={imageAlt} />
       <Box sx={styles.bottomContent}>
         <Slide direction='up' in={true} mountOnEnter unmountOnExit>
           <Typography variant='title'>

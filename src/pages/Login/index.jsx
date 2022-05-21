@@ -25,7 +25,7 @@ const Login = () => {
             goToCadaster={goToCadaster}
           />
 
-          <ImageSection image={image} />
+          <ImageSection image={image} imageAlt="greece's temple" />
         </Box>
       </Fade>
     </Box>
