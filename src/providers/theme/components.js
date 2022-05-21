@@ -1,28 +1,9 @@
 export const components = {
-  MuiMenuItem: {
+  MuiButton: {
     styleOverrides: {
       root: {
-        margin: 'dense',
+        textTransform: 'none',
       },
-    },
-  },
-  MuiTable: {
-    styleOverrides: {
-      root: {
-        size: 'small',
-      },
-    },
-  },
-  MuiSelect: {
-    styleOverrides: {
-      outlined: {
-        padding: 0,
-      },
-    },
-  },
-  MuiTooltip: {
-    styleOverrides: {
-      arrow: 'up',
     },
   },
 }

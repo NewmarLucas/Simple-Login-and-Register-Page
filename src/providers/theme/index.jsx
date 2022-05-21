@@ -10,7 +10,6 @@ export const CustomThemeProvider = ({ children }) => {
     palette,
     typography,
     components,
-    shape: { borderRadius: 30 },
     spacing: 8,
   })
 
