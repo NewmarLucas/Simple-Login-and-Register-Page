@@ -16,7 +16,7 @@ const Login = () => {
       <Fade in={true}>
         <Box sx={styles.contentContainer}>
           <FormSkeleton
-            submitButtonText='Cadastrar'
+            submitButtonText='Login'
             handleSubmit={handleSubmit}
             form={form}
             getFieldError={getFieldError}
