@@ -35,53 +35,48 @@ const Login = () => {
                 <Typography variant='body2'>the culture platform</Typography>
               </Box>
 
-              <Box sx={styles.inputContainer}>
-                <form onSubmit={handleSubmit} style={styles.inputContent}>
-                  <TextField
-                    label='Email or Username'
-                    name='email'
-                    value={form.values.email}
-                    error={Boolean(getFieldError('email'))}
-                    helperText={getFieldError('email')}
-                    onChange={handleChange}
-                    fullWidth
-                    variant='outlined'
-                  />
-                  <TextField
-                    label='Password *'
-                    fullWidth
-                    name='password'
-                    value={form.values.password}
-                    error={Boolean(getFieldError('password'))}
-                    helperText={getFieldError('password')}
-                    onChange={handleChange}
-                    type={showPassword ? 'text' : 'password'}
-                    variant='outlined'
-                    InputProps={{
-                      endAdornment: (
-                        <IconButton
-                          aria-label='toggle password visibility'
-                          onClick={handleClickShowPassword}
-                          edge='end'
-                        >
-                          {showPassword ? <VisibilityOff /> : <Visibility />}
-                        </IconButton>
-                      ),
-                    }}
-                  />
-                  <Button
-                    sx={styles.submitButton}
-                    type='submit'
-                    color='primary'
-                    variant='contained'
-                  >
-                    Login
-                  </Button>
-                </form>
-                <Button color='secondary' variant='text'>
-                  I forgot my password
+              <form onSubmit={handleSubmit} style={styles.inputContainer}>
+                <TextField
+                  label='Email or Username'
+                  name='email'
+                  value={form.values.email}
+                  error={Boolean(getFieldError('email'))}
+                  helperText={getFieldError('email')}
+                  onChange={handleChange}
+                  fullWidth
+                  variant='outlined'
+                />
+                <TextField
+                  label='Password *'
+                  fullWidth
+                  name='password'
+                  value={form.values.password}
+                  error={Boolean(getFieldError('password'))}
+                  helperText={getFieldError('password')}
+                  onChange={handleChange}
+                  type={showPassword ? 'text' : 'password'}
+                  variant='outlined'
+                  InputProps={{
+                    endAdornment: (
+                      <IconButton
+                        aria-label='toggle password visibility'
+                        onClick={handleClickShowPassword}
+                        edge='end'
+                      >
+                        {showPassword ? <VisibilityOff /> : <Visibility />}
+                      </IconButton>
+                    ),
+                  }}
+                />
+                <Button
+                  sx={styles.submitButton}
+                  type='submit'
+                  color='primary'
+                  variant='contained'
+                >
+                  Login
                 </Button>
-              </Box>
+              </form>
             </Box>
 
             <Box sx={styles.registerButtonContainer}>

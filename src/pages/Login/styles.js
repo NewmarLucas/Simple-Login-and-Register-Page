@@ -53,23 +53,16 @@ export const styles = {
     width: 'calc(100% - 6rem)',
     padding: '0 3rem',
     flexDirection: 'column',
-    justifyContent: 'space-between',
     alignItems: 'center'
   },
   inputContainer: {
     width: '100%',
-    height: '70%',
+    height: 200,
     maxWidth: 325,
+    marginTop: '3rem',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-evenly'
-  },
-  inputContent: {
-    width: '100%',
-    height: 200,
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-between',
   },
   submitButton: {
     borderRadius: '2rem'
