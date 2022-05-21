@@ -4,9 +4,11 @@ import { Box, Typography, TextField, Button, IconButton } from '@mui/material'
 import { VisibilityOff, Visibility } from '@mui/icons-material'
 
 import logo from '../../assets/artyou_logo.png'
-import { styles } from './styles'
+import { useStyles } from './styles'
 
 export const FormSkeleton = (props) => {
+  const { styles } = useStyles()
+
   const {
     handleSubmit,
     submitButtonText,

@@ -2,9 +2,11 @@ import React from 'react'
 
 import { Box, Typography, Slide } from '@mui/material'
 
-import { styles } from './styles'
+import { useStyles } from './styles'
 
 export const ImageSection = ({ image }) => {
+  const { styles } = useStyles()
+
   return (
     <Box sx={styles.container}>
       <img src={image} alt="greece's temple" />

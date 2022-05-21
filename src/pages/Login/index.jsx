@@ -4,12 +4,13 @@ import { Box, Fade } from '@mui/material'
 import { ImageSection, FormSkeleton } from '../../components'
 
 import { useHooks } from './hooks'
-import { styles } from './styles'
+import { useStyles } from './styles'
 import image from '../../assets/image-2.jpeg'
 
 const Login = () => {
   const { handleSubmit, handleChange, form, getFieldError, goToCadaster } =
     useHooks()
+  const { styles } = useStyles()
 
   return (
     <Box sx={styles.container}>
