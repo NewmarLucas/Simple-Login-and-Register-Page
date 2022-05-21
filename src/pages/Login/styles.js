@@ -7,7 +7,7 @@ export const styles = {
     alignItems: 'center'
   },
   contentContainer: {
-    width: '80%',
+    width: '90%',
     height: 600,
     maxWidth: 960,
     display: 'flex',
@@ -65,6 +65,7 @@ export const styles = {
     justifyContent: 'space-evenly'
   },
   submitButton: {
+    marginTop: '1rem',
     borderRadius: '2rem'
   },
   registerButtonContainer: {

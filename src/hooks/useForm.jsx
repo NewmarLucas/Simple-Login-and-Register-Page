@@ -76,15 +76,34 @@ export const useForm = () => {
     }))
   }
 
+  const handleTouch = () => {
+    Object.keys(form.touched).forEach(async (name) => {
+      const error = await validateField(name, '')
+      setForm((form) => ({
+        ...form,
+        touched: {
+          ...form.touched,
+          [name]: true,
+        },
+        errors: {
+          ...form.errors,
+          [name]: error,
+        },
+      }))
+    })
+  }
+
   const getFieldError = (name) =>
     form.touched[name] && form.errors[name] && form.errors[name][0]
 
   useEffect(() => {
     setForm((form) => ({
       ...form,
-      isValid: Boolean(
-        form.errors.email?.length === 0 && form.errors.password?.length === 0
-      ),
+      isValid:
+        form.touched.email &&
+        form.errors.email?.length === 0 &&
+        form.touched.password &&
+        form.errors.password?.length === 0,
     }))
   }, [form.errors])
 
@@ -93,5 +112,6 @@ export const useForm = () => {
     handleChange,
     setForm,
     getFieldError,
+    handleTouch,
   }
 }
