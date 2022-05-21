@@ -34,19 +34,6 @@ export const styles = {
     justifyContent: 'space-evenly',
     position: 'relative',
   },
-  content2: {
-    width: '50%',
-    position: 'relative',
-    '& img': {
-      position: 'absolute',
-      right: 0,
-      left: 0,
-      top: 0,
-      objectFit: 'cover',
-      width: '100%',
-      height: 440
-    }
-  },
   section1Container: {
     display: 'flex',
     height: '70%',
@@ -77,14 +64,5 @@ export const styles = {
     '& button': {
       marginLeft: '5px'
     }
-  },
-  section2TextContainer: {
-    position: 'absolute',
-    bottom: 0,
-    height: 160,
-    width: '100%',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center'
   }
 }

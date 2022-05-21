@@ -5,11 +5,11 @@ import {
   Typography,
   TextField,
   Button,
-  Slide,
   Fade,
   IconButton,
 } from '@mui/material'
 import { VisibilityOff, Visibility } from '@mui/icons-material'
+import { ImageSection } from '../../components'
 
 import { useHooks } from './hooks'
 import { styles } from './styles'
@@ -88,23 +88,7 @@ const Login = () => {
             </Box>
           </Box>
 
-          <Box sx={styles.content2}>
-            <img src={image} alt="greece's temple" />
-            <Box sx={styles.section2TextContainer}>
-              <Slide direction='up' in={true} mountOnEnter unmountOnExit>
-                <Typography variant='title'>
-                  Desenvolvido por{' '}
-                  <a
-                    href='https://www.linkedin.com/in/newmarlucas/'
-                    target='_blank'
-                    rel='noreferrer'
-                  >
-                    Newmar Lucas
-                  </a>
-                </Typography>
-              </Slide>
-            </Box>
-          </Box>
+          <ImageSection image={image} />
         </Box>
       </Fade>
     </Box>
