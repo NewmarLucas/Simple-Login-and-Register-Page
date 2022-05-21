@@ -5,11 +5,10 @@ import { ImageSection, FormSkeleton } from '../../components'
 
 import { useHooks } from './hooks'
 import { useStyles } from './styles'
-import image from '../../assets/image-2.jpeg'
+import image from '../../assets/image-3.jpeg'
 
-const Login = () => {
-  const { handleSubmit, handleChange, form, getFieldError, goToCadaster } =
-    useHooks()
+const Cadaster = () => {
+  const { handleSubmit, handleChange, form, getFieldError } = useHooks()
   const { styles } = useStyles()
 
   return (
@@ -17,19 +16,18 @@ const Login = () => {
       <Fade in={true}>
         <Box sx={styles.contentContainer}>
           <FormSkeleton
-            submitButtonText='Login'
+            submitButtonText='Cadastrar'
             handleSubmit={handleSubmit}
             form={form}
             getFieldError={getFieldError}
             handleChange={handleChange}
-            goToCadaster={goToCadaster}
           />
 
-          <ImageSection image={image} imageAlt="greece's temple" />
+          <ImageSection image={image} imageAlt='museum' />
         </Box>
       </Fade>
     </Box>
   )
 }
 
-export default Login
+export default Cadaster
