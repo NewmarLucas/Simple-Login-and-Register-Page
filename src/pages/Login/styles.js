@@ -59,13 +59,14 @@ export const styles = {
   inputContainer: {
     width: '100%',
     height: '70%',
+    maxWidth: 325,
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-evenly'
   },
   inputContent: {
     width: '100%',
-    height: '60%',
+    height: 200,
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',

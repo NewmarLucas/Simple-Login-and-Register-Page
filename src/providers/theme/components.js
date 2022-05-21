@@ -6,4 +6,11 @@ export const components = {
       },
     },
   },
+  MuiOutlinedInput: {
+    styleOverrides: {
+      input: {
+        fontSize: '1rem',
+      }
+    }
+  }
 }
