@@ -13,12 +13,11 @@ import { ImageSection } from '../../components'
 
 import { useHooks } from './hooks'
 import { styles } from './styles'
-import image from '../../assets/image-2.jpeg'
+import image from '../../assets/image-3.jpeg'
 import logo from '../../assets/artyou_logo.png'
 
-const Login = () => {
-  const { handleSubmit, handleChange, form, getFieldError, goToCadaster } =
-    useHooks()
+const Cadaster = () => {
+  const { handleSubmit, handleChange, form, getFieldError } = useHooks()
   const [showPassword, setShowPassword] = useState(false)
 
   const handleClickShowPassword = () => {
@@ -76,16 +75,9 @@ const Login = () => {
                   color='primary'
                   variant='contained'
                 >
-                  Login
+                  Cadastrar
                 </Button>
               </form>
-            </Box>
-
-            <Box sx={styles.registerButtonContainer}>
-              <Typography variant='body2'>Não tem uma conta? </Typography>
-              <Button onClick={goToCadaster} color='secondary' variant='text'>
-                Registre-se
-              </Button>
             </Box>
           </Box>
 
@@ -96,4 +88,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default Cadaster
