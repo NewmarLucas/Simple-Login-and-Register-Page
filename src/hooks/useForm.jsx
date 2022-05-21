@@ -1,28 +1,64 @@
 import { useState, useEffect } from 'react'
-import validate from 'validate.js'
+import * as yup from 'yup'
 
-export const useForm = ({ schema, initialForm }) => {
-  const [form, setForm] = useState(initialForm)
+yup.setLocale({
+  string: {
+    email: 'Digite um email válido',
+    min: 'Mínimo de 8 caracteres',
+  },
+  mixed: {
+    required: 'Campo obrigatório',
+  },
+})
 
-  const handleChange = (e) => {
-    const { name, value } = e.target
+const emailSchema = yup.object({
+  email: yup.string().email().required(),
+})
 
-    setForm((form) => ({
-      ...form,
-      values: {
-        ...form.values,
-        [name]: ['phone', 'postalCode'].includes(name)
-          ? value?.replace(/\D/g, '')
-          : value,
-      },
-      touched: {
-        ...form.touched,
-        [name]: true,
-      },
-    }))
+const passwordSchema = yup.object({
+  password: yup.string().required().min(8),
+})
+
+const initialForm = {
+  isValid: false,
+  values: {
+    email: '',
+    password: '',
+  },
+  touched: {
+    email: false,
+    password: false,
+  },
+  errors: {
+    email: [],
+    password: [],
+  },
+}
+
+const validateField = async (fieldName, value) => {
+  let errorArray = []
+  if (fieldName === 'email') {
+    await emailSchema.validate({ email: value }).catch((err) => {
+      errorArray = err.errors
+    })
   }
 
-  const handleValueChange = (name, value) => {
+  if (fieldName === 'password') {
+    await passwordSchema.validate({ password: value }).catch((err) => {
+      errorArray = err.errors
+    })
+  }
+
+  return errorArray
+}
+
+export const useForm = () => {
+  const [form, setForm] = useState(initialForm)
+
+  const handleChange = async (e) => {
+    const { name, value } = e.target
+    const error = await validateField(name, value)
+
     setForm((form) => ({
       ...form,
       values: {
@@ -33,39 +69,29 @@ export const useForm = ({ schema, initialForm }) => {
         ...form.touched,
         [name]: true,
       },
+      errors: {
+        ...form.errors,
+        [name]: error,
+      },
     }))
   }
-
-  const handleTouch = () => {
-    Object.keys(form.touched).forEach((name) => {
-      setForm((form) => ({
-        ...form,
-        touched: {
-          ...form.touched,
-          [name]: true,
-        },
-      }))
-    })
-  }
-
-  useEffect(() => {
-    const errors = validate(form.values, schema, { fullMessages: false })
-    setForm((form) => ({
-      ...form,
-      isValid: !errors,
-      errors: errors || {},
-    }))
-  }, [form.values, setForm, schema])
 
   const getFieldError = (name) =>
     form.touched[name] && form.errors[name] && form.errors[name][0]
 
+  useEffect(() => {
+    setForm((form) => ({
+      ...form,
+      isValid: Boolean(
+        form.errors.email?.length === 0 && form.errors.password?.length === 0
+      ),
+    }))
+  }, [form.errors])
+
   return {
     form,
     handleChange,
-    getFieldError,
-    handleTouch,
     setForm,
-    handleValueChange,
+    getFieldError,
   }
 }

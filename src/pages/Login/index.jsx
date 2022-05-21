@@ -11,11 +11,13 @@ import {
 } from '@mui/material'
 import { VisibilityOff, Visibility } from '@mui/icons-material'
 
+import { useHooks } from './hooks'
 import { styles } from './styles'
 import image from '../../assets/image-2.jpeg'
 import logo from '../../assets/artyou_logo.png'
 
 const Login = () => {
+  const { handleSubmit, handleChange, form, getFieldError } = useHooks()
   const [showPassword, setShowPassword] = useState(false)
 
   const handleClickShowPassword = () => {
@@ -34,20 +36,25 @@ const Login = () => {
               </Box>
 
               <Box sx={styles.inputContainer}>
-                <form
-                  onSubmit={() => {
-                    alert('teste')
-                  }}
-                  style={styles.inputContent}
-                >
+                <form onSubmit={handleSubmit} style={styles.inputContent}>
                   <TextField
                     label='Email or Username'
+                    name='email'
+                    value={form.values.email}
+                    error={Boolean(getFieldError('email'))}
+                    helperText={getFieldError('email')}
+                    onChange={handleChange}
                     fullWidth
                     variant='outlined'
                   />
                   <TextField
                     label='Password *'
                     fullWidth
+                    name='password'
+                    value={form.values.password}
+                    error={Boolean(getFieldError('password'))}
+                    helperText={getFieldError('password')}
+                    onChange={handleChange}
                     type={showPassword ? 'text' : 'password'}
                     variant='outlined'
                     InputProps={{
