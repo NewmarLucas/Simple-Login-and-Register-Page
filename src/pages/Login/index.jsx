@@ -32,12 +32,12 @@ const Login = () => {
             <Box sx={styles.section1Container}>
               <Box sx={styles.section1Title}>
                 <img src={logo} alt='ArtYou Logo' />
-                <Typography variant='body2'>the culture platform</Typography>
+                <Typography variant='body2'>a plataforma de cultura</Typography>
               </Box>
 
               <form onSubmit={handleSubmit} style={styles.inputContainer}>
                 <TextField
-                  label='Email or Username'
+                  label='Email'
                   name='email'
                   value={form.values.email}
                   error={Boolean(getFieldError('email'))}
@@ -47,7 +47,7 @@ const Login = () => {
                   variant='outlined'
                 />
                 <TextField
-                  label='Password *'
+                  label='Senha'
                   fullWidth
                   sx={{ mt: '10px' }}
                   name='password'
@@ -81,9 +81,9 @@ const Login = () => {
             </Box>
 
             <Box sx={styles.registerButtonContainer}>
-              <Typography variant='body2'>Don't have an account? </Typography>
+              <Typography variant='body2'>Não tem uma conta? </Typography>
               <Button color='secondary' variant='text'>
-                Register
+                Registre-se
               </Button>
             </Box>
           </Box>
@@ -93,7 +93,7 @@ const Login = () => {
             <Box sx={styles.section2TextContainer}>
               <Slide direction='up' in={true} mountOnEnter unmountOnExit>
                 <Typography variant='title'>
-                  Powered by{' '}
+                  Desenvolvido por{' '}
                   <a
                     href='https://www.linkedin.com/in/newmarlucas/'
                     target='_blank'
