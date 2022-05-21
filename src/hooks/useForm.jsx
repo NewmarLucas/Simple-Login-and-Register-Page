@@ -77,7 +77,7 @@ export const useForm = () => {
 
   const handleTouch = () => {
     Object.keys(form.touched).forEach(async (name) => {
-      const error = await validateField(name, '')
+      const error = await validateField(name, form.values[name])
       setForm((form) => ({
         ...form,
         touched: {
@@ -110,6 +110,7 @@ export const useForm = () => {
     form,
     handleChange,
     setForm,
+    initialForm,
     getFieldError,
     handleTouch,
   }
