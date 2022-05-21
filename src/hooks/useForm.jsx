@@ -3,7 +3,6 @@ import * as yup from 'yup'
 
 yup.setLocale({
   string: {
-    email: 'Digite um email válido',
     min: 'Mínimo de 8 caracteres',
   },
   mixed: {
@@ -11,8 +10,8 @@ yup.setLocale({
   },
 })
 
-const emailSchema = yup.object({
-  email: yup.string().email().required(),
+const nameSchema = yup.object({
+  name: yup.string().required(),
 })
 
 const passwordSchema = yup.object({
@@ -22,23 +21,23 @@ const passwordSchema = yup.object({
 const initialForm = {
   isValid: false,
   values: {
-    email: '',
+    name: '',
     password: '',
   },
   touched: {
-    email: false,
+    name: false,
     password: false,
   },
   errors: {
-    email: [],
+    name: [],
     password: [],
   },
 }
 
 const validateField = async (fieldName, value) => {
   let errorArray = []
-  if (fieldName === 'email') {
-    await emailSchema.validate({ email: value }).catch((err) => {
+  if (fieldName === 'name') {
+    await nameSchema.validate({ name: value }).catch((err) => {
       errorArray = err.errors
     })
   }
@@ -100,8 +99,8 @@ export const useForm = () => {
     setForm((form) => ({
       ...form,
       isValid:
-        form.touched.email &&
-        form.errors.email?.length === 0 &&
+        form.touched.name &&
+        form.errors.name?.length === 0 &&
         form.touched.password &&
         form.errors.password?.length === 0,
     }))

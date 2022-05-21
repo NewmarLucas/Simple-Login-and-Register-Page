@@ -32,11 +32,11 @@ export const FormSkeleton = (props) => {
 
         <form onSubmit={handleSubmit} style={styles.inputContainer}>
           <TextField
-            label='Email'
-            name='email'
-            value={form.values.email}
-            error={Boolean(getFieldError('email'))}
-            helperText={getFieldError('email')}
+            label='Nome'
+            name='name'
+            value={form.values.name}
+            error={Boolean(getFieldError('name'))}
+            helperText={getFieldError('name')}
             onChange={handleChange}
             fullWidth
             variant='outlined'
